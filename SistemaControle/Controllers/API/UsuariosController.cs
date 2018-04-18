@@ -30,7 +30,7 @@ namespace SistemaControle.Controllers.API
             string email = string.Empty;
             string password = string.Empty;
             dynamic jsonObject = form;
-
+             
             try
             {
                 email = jsonObject.Email.Value;
