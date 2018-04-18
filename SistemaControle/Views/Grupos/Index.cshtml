@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SistemaControle.Models.Grupos>
+
+@{
+    ViewBag.Title = "Disciplinas";
+}
+
+<h2>Lista de Disciplinas</h2>
+
+<p>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table class="table table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayName("Professor")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+           Estudantes
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Professor.NomeCompleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GruposDetalhes.Count)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.GrupoId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.GrupoId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.GrupoId }, new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}
+
+</table>
